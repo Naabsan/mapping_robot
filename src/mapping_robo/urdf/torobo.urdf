@@ -1,0 +1,188 @@
+<robot name="torobo">
+
+  <!-- Material definitions -->
+  <material name="white">
+    <color rgba="1 1 1 1" />
+  </material>
+
+  <material name="blue">
+    <color rgba="0 0 1 1" />
+  </material>
+
+  <material name="yellow">
+    <color rgba="1 1 0 1" />
+  </material>
+
+  <material name="black">
+    <color rgba="0 0 0 1" />
+  </material>
+
+  <material name="red">
+    <color rgba="1 0 0 1" />
+  </material>
+  
+  <material name="gray">
+  <color rgba="0.5 0.5 0.5 1" />
+  </material>
+
+
+  <!-- Laser link -->
+  <link name="laser">
+    <visual>
+      <origin xyz="0 0 0" />
+      <geometry>
+        <cylinder length="0.03" radius="0.03" />
+      </geometry>
+      <material name="red" />
+    </visual>
+  </link>
+
+  <!-- Base link -->
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 0" />
+      <geometry>
+        <box size="0.23 0.15 0.065" />
+      </geometry>
+      <material name="black" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" />
+      <geometry>
+        <box size="0.23 0.15 0.065" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint name="base_footprint_joint" type="fixed">
+  	<parent link="base_link"/>
+  	<child link="base_footprint"/>
+  	<origin xyz=" 0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="base_footprint">
+  </link>
+  
+  <!-- Chassis link -->
+  <link name="chassis">
+    <visual>
+      <origin xyz="0.115 0 0.0325"/>
+      <geometry>
+        <box size="0.23 0.15 0.065"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <origin xyz="0.115 0 0.0325"/>
+      <geometry>
+        <box size="0.23 0.15 0.065"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Left Wheel link back -->
+  <link name="left_wheel_back">
+    <visual>
+      <geometry>
+        <cylinder radius="0.03" length="0.02" />
+      </geometry>
+      <material name="yellow" />
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.03" length="0.02" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Left Wheel link front -->
+  <link name="left_wheel_front">
+    <visual>
+      <geometry>
+        <cylinder radius="0.03" length="0.02" />
+      </geometry>
+      <material name="yellow" />
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.03" length="0.02" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Right Wheel link back -->
+  <link name="right_wheel_back">
+    <visual>
+      <geometry>
+        <cylinder radius="0.03" length="0.02" />
+      </geometry>
+      <material name="yellow" />
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.03" length="0.02" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Right Wheel link front -->
+  <link name="right_wheel_front">
+    <visual>
+      <geometry>
+        <cylinder radius="0.03" length="0.02" />
+      </geometry>
+      <material name="yellow" />
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.03" length="0.02" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Laser joint -->
+  <joint name="laser_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="laser" />
+    <origin rpy="0 0 3.1415926" xyz="0 0 0.08" />
+  </joint>
+
+  <!-- Chassis joint -->
+  <joint name="chassis_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="chassis"/>
+    <origin xyz="-0.1 0 0"/>
+  </joint>
+
+  <!-- Left Wheel joint back -->
+  <joint name="left_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="left_wheel_back"/>
+    <origin xyz="-0.03 0.09 0"  rpy="-1.5708 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <!-- Left Wheel joint front -->
+  <joint name="left_front_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="left_wheel_front"/>
+    <origin xyz="0.1 0.09 0"  rpy="-1.5708 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <!-- Right Wheel joint back -->
+  <joint name="right_back_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="right_wheel_back"/>
+    <origin xyz="-0.03 -0.09 0"  rpy="1.5708 0 0"/>
+    <axis xyz="0 0 -1"/>
+  </joint>
+
+  <!-- Right Wheel joint front -->
+  <joint name="right_front_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="right_wheel_front"/>
+    <origin xyz="0.1 -0.09 0"  rpy="1.5708 0 0"/>
+    <axis xyz="0 0 -1"/>
+  </joint>
+
+</robot>
