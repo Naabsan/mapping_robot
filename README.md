@@ -1,7 +1,7 @@
 ROS2 Mapping Robot Project
 
 Overview
-This project is the final result of a study project that ran from February 25, 2024, to April 31, 2024, as part of an academic requirement at Hochschule Esslingen. The aim was to build a robot capable of mapping its environment in 2D using an RPLIDAR A1 and Raspberry Pi 4, integrating ROS2 for control and visualization.
+This project is the final result of a study project. The aim was to build a robot capable of mapping its environment in 2D using an RPLIDAR A1 and Raspberry Pi 4, integrating ROS2 for control and visualization.
 
 ![image](https://github.com/user-attachments/assets/f0f970b5-1803-4d3d-a4fb-0eb2b8660309)
 
